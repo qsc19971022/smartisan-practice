@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>结算界面</title>
+    <link rel="stylesheet" href="settlement.css">
+</head>
+<body>
+    <header></header>
+    <div id="goods-top">
+        <h3>收货信息</h3>
+    </div>
+    <div id="goods-main">
+        <div class="new-place">
+            <p class="new-place-name" >你的名字</p>
+            <p class="new-place-num" >12345678911</p>
+            <p class="new-place-place">阿森松岛为</p>
+        </div>
+        <div class="add-place">
+            <h5>+</h5><br>
+            <span>使用新地址</span>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div id="listing-top">
+        <h3>购物清单</h3>
+    </div>
+    <div id="listing1">
+        <div id="shop-info">
+            <h5>商品信息</h5>
+            <h5>单价</h5>
+            <h5>数量</h5>
+            <h5>小计</h5>
+        </div>
+        <div id="listing-main">
+            <div id="spec">
+                <span class="choose"></span>
+                <span class="shop-img"></span>
+                <span class="shop-name">
+                    <h3>这是一个不正经的商品名</h3>
+                    <p>黑色</p>
+                </span>
+                <p>￥&nbsp;<span class="price">149.00</span></p>
+                <p>
+                    <span class="num">1</span>
+                </p>
+                <p>￥&nbsp;<span class="sub">182.00</span></p>
+            </div>
+        </div>
+    </div>
+    <div id="invoice-top">
+        <h3>发票信息</h3>
+    </div>
+    <div id="invoice-main">
+        <p>发票类型：电子发票</p>
+        <p>发票内容：购买商品明细</p>
+        <p>邮箱地址：<input type="text"></p>
+        <hr>
+        <p>*由于商城票据调整，电子发票将于 7 月前开具</p>
+        <p>*请您填写邮箱地址，电子发票将于系统恢复后，第一时间发送至您的邮箱。</p>
+        <p>*电子发票是税务局认可的有效付款凭证，可作为售后服务凭据，电子发票打印后可以用于企业报销。</p>
+    </div>
+    <div class="fix-bar">
+        <div>
+            <div class="fix-bar-left">
+                <p class="fix-bar-tittle">
+                    <span>你已选择了</span>
+                    <span><span class="num1">1</span>件商品</span>
+                </p>
+            </div>
+            <div class="fix-bar-right">
+                <span class="sum">应付总额：￥&nbsp;<span>149.00</span></span>
+                <a href="submit.html" class="join" target="_self">提交订单</a>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <footer></footer>
+    <div class="pop">
+        <div>
+            <h2 class="pop-tittle">管理收货地址</h2>
+            <input type="text" placeholder="收货人姓名">
+            <input type="text" placeholder="手机号">
+            <input type="text" placeholder="区号(选填)">
+            <input type="text" placeholder="固定电话(选填)">
+            <input type="text" id="city" placeholder="请输入详细地址"/>
+            <p>
+                <button class="cancel">取消</button>
+                <button class="deter">确定</button>
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script >
+    $(function(){
+       $("header").load("public1.html",function () {
+
+       });
+       $("footer").load("public2.html",function () {
+
+       });
+    event();
+        let ls=localStorage;
+        let myJson=JSON.parse(ls.getItem('data'));
+        let $tittle=myJson[0].tittle;
+        let $url=myJson[1].src;
+        let $size=myJson[2].size;
+        let $num=myJson[3].num;
+        let $sub=myJson[4].sub;
+        $(".num").html($num);
+        $(".shop-name>h3").html($tittle);
+        $(".shop-img").css("backgroundImage", $url);
+        $(".shop-name>p").html($size);
+        $(".sub").html($sub);
+        $(".fix-bar-right>span>span").html($sub);
+        $(".num1").html($num);
+    });
+    function event(){
+        $(".add-place").click(function(){
+            $(".pop").show();
+        });
+        $(".cancel").click(function(){
+            $(".pop").hide();
+        });
+        $(".deter").click(function(){
+            let $name=$(".pop>div>input:nth-child(2)").val();
+            let $num=$(".pop>div>input:nth-child(3)").val();
+            let $place=$("#city").val();
+            $(".new-place-name").html($name);
+            $(".new-place-num").html($num);
+            $(".new-place-place").html($place);
+            $(".pop").hide();
+            $(".new-place").show();
+        });
+        $(window).scroll(function(){
+            let sTop=$(window).scrollTop();
+            if (sTop<4930){
+                $(".fix-bar").css({
+                    position:"fixed",
+                    bottom:0,
+                    zIndex:5
+                });
+            }else{
+                $(".fix-bar").css({
+                    position: "sticky"
+                });
+            }
+        });
+    }
+</script>

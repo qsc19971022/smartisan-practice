@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>提交页面</title>
+    <link rel="stylesheet" href="submit.css">
+</head>
+<body>
+    <header></header>
+    <div id="submit-top">
+        <h3>支付订单</h3>
+    </div>
+    <div id="submit-main">
+        <h1>提交订单成功，请选择支付方式</h1>
+        <p>请在<span>2 小时内</span>完成支付，超时订单将自动取消。</p>
+        <p>我们将在您完成支付后的 72 小时内发货</p>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="online-pay">线上支付</div>
+        <div class="pay-way">
+            <div>
+                <div class="pay1"></div>
+                <div class="pay2"></div>
+            </div>
+            <div>
+                <div class="pay1-code">
+                    <p>请使用支付宝扫一扫</p>
+                    <p>扫描二维码支付</p>
+                </div>
+                <div class="pay2-code">
+                    <p>请使用微信扫一扫</p>
+                    <p>扫描二维码支付</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="submit-foot">
+        <p>应付金额：￥ <span>0</span>元</p>
+    </div>
+    <footer></footer>
+</body>
+</html>
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script >
+    $(function(){
+        let ls=localStorage;
+        let myJson=JSON.parse(ls.getItem('data'));
+        let $sub=myJson[4].sub;
+        $("#submit-foot>p>span").html($sub);
+        $(".pay1-code").hide();
+        $(".pay2-code").hide();
+       $("header").load("public1.html",function () {
+           
+       });
+       $("footer").load("public2.html",function(){
+
+       })
+    });
+    $(".pay1").click(function(){
+        $(this).addClass("pay-active");
+        $(".pay2").removeClass("pay-active");
+        $(".pay1-code").show();
+        $(".pay2-code").hide();
+    });
+    $(".pay2").click(function(){
+        $(this).addClass("pay-active");
+        $(".pay1").removeClass("pay-active");
+        $(".pay2-code").show();
+        $(".pay2-code").css({marginLeft:190})
+        $(".pay1-code").hide();
+    });
+</script>

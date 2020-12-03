@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>详情页</title>
+    <link rel="stylesheet" href="detail.css">
+</head>
+<body>
+    <header></header>
+    <main>
+        <div id="m-left">
+            <ul id="part">
+                <li class="part-active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <div id="main-bg">
+                <div class="mask"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div id="m-right">
+            <div class="title">
+                <h1>Smartisan T恤 丑小鸭</h1>
+                <h2>¥ 149.00</h2>
+            </div>
+            <div class="style">
+                <span>款式选择</span>
+                <div><span>男款</span></div>
+            </div>
+            <div class="color">
+                <span>颜色选择</span>
+                <div>
+                    <span class="color-cycle"></span>
+                    <span class="color-cycle"></span>
+                    <span class="color-cycle"></span>
+                    <span class="color-cycle"></span>
+                    <span class="color-cycle"></span>
+                    <span class="color-cycle"></span>
+                </div>
+            </div>
+            <div class="size">
+                <span>尺码选择</span>
+                <div>
+                    <span class="size-choose" >S</span>
+                    <span class="size-choose">M</span>
+                    <span class="size-choose">L</span>
+                    <span class="size-choose">XL</span>
+                    <span class="size-choose">XXL</span>
+                    <span class="size-choose">XXXL</span>
+                </div>
+            </div>
+            <div class="num">
+                <span>数量选择</span>
+                <div>
+                    <span class="sub"></span>
+                    <span class="oNum">1</span>
+                    <span class="add"></span>
+                </div>
+            </div>
+            <div class="state">
+                <span>服务说明</span>
+                <div><span>*满150元包邮</span></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div id="big"></div>
+    </main>
+    <div class="product-top">
+        <h3>产品信息</h3>
+    </div>
+    <div class="product-main">
+        <img src="img1/1.png" >
+        <img src="img1/2.png" >
+        <img src="img1/3.png">
+        <img src="img1/4.png">
+        <img src="img1/5.png">
+    </div>
+    <div class="rel-top">
+        <h3>产品信息</h3>
+    </div>
+    <div class="rel-main">
+        <a href="#" class="sp">
+            <h4 class="hg_titlt">Smartisan T恤 丑小鸭</h4>
+            <p>七彩配色随机发货，为生活增添一份小小惊喜</p>
+            <div class="hotGoods-cycle">
+                <span class="hotGoods-cycle-span" id="1"></span>
+            </div>
+            <p class="hotGoods-price">￥&nbsp;99.00<span></span></p>
+            <p class="hotGoods-pay">
+                <button>查看详情</button>
+            </p>
+        </a>
+        <a href="#" class="sp">
+            <h4 class="hg_titlt">Smartisan T恤 迪特拉姆斯</h4>
+            <p>TPE 环保材质，PTC 过温保护</p>
+            <div class="hotGoods-cycle">
+                <span class="hotGoods-cycle-span" id="2"></span>
+            </div>
+            <p class="hotGoods-price">￥&nbsp;99.00<span></span></p>
+            <p class="hotGoods-pay">
+                <button>查看详情</button>
+            </p>
+        </a>
+        <a href="#" class="sp">
+            <h4 class="hg_titlt">畅呼吸智能空气净化器 · 标准版</h4>
+            <p>超强净化能力、超低噪音、超长寿命</p>
+            <div class="hotGoods-cycle">
+                <span class="hotGoods-cycle-span" id="3"></span>
+            </div>
+            <p class="hotGoods-price">￥&nbsp;2799.00<span></span></p>
+            <p class="hotGoods-pay">
+                <button>查看详情</button>
+            </p>
+        </a>
+        <a href="#" class="sp">
+            <h4 class="hg_titlt">Smartisan 原装快充充电器 18W</h4>
+            <p>全面兼容的 18W 快速充电</p>
+            <div class="hotGoods-cycle">
+                <span class="hotGoods-cycle-span" id="4"></span>
+            </div>
+            <p class="hotGoods-price">￥&nbsp;58.00<span></span></p>
+            <p class="hotGoods-pay">
+                <button>查看详情</button>
+            </p>
+        </a>
+        <div class="clear"></div>
+    </div>
+    <div class="fix-bar">
+        <div>
+            <div class="fix-bar-left">
+                <p class="fix-bar-tittle">
+                    <span>你已选择了</span>
+                    <span>Smartisan T恤 丑小鸭×<span class="num1">1</span></span>
+                </p>
+            </div>
+            <div class="fix-bar-right">
+                    <span class="sum">￥&nbsp;<span>149.00</span></span>
+                    <a href="#">现在购买</a>
+                    <a href="cart.html" class="join" target="_self">加入购物车</a>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <footer></footer>
+</body>
+</html>
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script >
+    $(function(){
+       $("header").load("public1.html",function () {
+           
+       });
+       $("footer").load("public2.html",function(){
+
+       });
+        event1()
+    });
+    $("#part>li").each(function(index,ele){ //衣服细节图片遍历
+        $(ele).css({backgroundImage:"url(img1/bg0-"+index+".png)"})
+    });
+    $(".color-cycle").each(function(index,ele){ //颜色小圆点图片遍历
+        let i = index+1;
+        $(ele).css({backgroundImage:"url(img1/c"+i+".jpg)"})
+    });
+    $(".color-cycle").click(function () {  //通过颜色小圆点来改变别的图片
+        let i=$(this).index();
+        $(this).css({border: "2px solid rgb(153,153,153)"}).siblings().css({border: "1px solid rgb(229,229,229)"});
+        $("#main-bg").css({backgroundImage:"url(img1/bg"+i+".png"});
+        $("#part>li").each(function(index,ele){ //衣服细节图片遍历
+            $(ele).css({backgroundImage:"url(img1/bg"+i+"-"+index+".png)"})
+        });
+    })
+    $("#part>li").click(function(){ //衣服细节图片切换
+        $(this).addClass("part-active").siblings().removeClass("part-active");
+        let $bg=$(this).css("backgroundImage");
+        $("#main-bg").css({backgroundImage:$bg});
+    });
+    $(".size-choose").click(function () {   //尺码选择效果
+        $(this).addClass("size-active").siblings().removeClass("size-active");
+    })
+ //-----------------------------------放大镜----------------------------------------
+    $("#main-bg").mouseenter(function(){
+        $(".mask").show();
+        $("#big").show();
+    });
+    $("#main-bg").mousemove(function(evt){
+        let oM=$("#main-bg").css("backgroundImage");
+        $("#big").css({backgroundImage:oM});
+        let e= evt||event;
+        let $left=e.pageX-$("#main-bg").offset().left- ($(".mask").width() / 2);
+        let $top=e.pageY -$("#main-bg").offset().top - ($(".mask").height() / 2);
+        if($left<=0){
+            $left=0;
+        }
+        if($left>$("#main-bg").width()-$(".mask").width()){
+            $left=$("#main-bg").width()-$(".mask").width();
+        }
+        if($top<=0){
+            $top=0;
+        }
+        if($top>$("#main-bg").height()-$(".mask").height()){
+            $top=$("#main-bg").height()-$(".mask").height();
+        }
+        $(".mask").css({left:$left,top:$top});
+
+        let X = $("#big").width()*$left/$(".mask").width();
+        let Y = $("#big").height()*$top/$(".mask").height();
+        $("#big").css({backgroundPositionX:-X});
+        $("#big").css({backgroundPositionY:-Y});
+    });
+    $("#main-bg").mouseleave(function(){
+        $(".mask").hide();
+        $("#big").hide();
+    });
+//--------------------------------------------------------------------------------
+    $(".sp").each(function (index,ele) {  //商品图片
+        let i=index+1;
+        let $url = "url(img1/bg"+i+".jpg)";
+        $(ele).css("backgroundImage", $url);
+    });
+    $(".hotGoods-cycle-span").each(function (index,ele) {  //小圆点图片
+        let i=index+1;
+        let $url = "url(img1/bgc"+i+".jpg)";
+        $(ele).css("backgroundImage", $url);
+    });
+    $(".rel-main>a").mouseenter(function(){  //鼠标移入商品效果
+        // $pay=$(".hotGoods-pay");
+        $(this).children(".hotGoods-price").hide();
+        $(this).children(".hotGoods-pay").show();
+    });
+    $(".rel-main>a").mouseleave(function(){   //鼠标移除商品效果
+        $(this).children(".hotGoods-price").show();
+        $(this).children(".hotGoods-pay").hide();
+    });
+//------------------------------------------------------------------------------------
+     $(window).scroll(function(){
+         let sTop=$(window).scrollTop();
+         if (sTop<7930){
+             $(".fix-bar").css({
+                 position:"fixed",
+                 bottom:0,
+                 zIndex:5
+             });
+         }else{
+             $(".fix-bar").css({
+                 position: "sticky"
+             });
+         }
+     });
+     function event1(){
+         $(".add").click(function(){
+             let num=parseInt($(".oNum").html());
+             num+=1;
+             let sum=num*149;
+             $(".oNum").html(num);
+             $(".num1").html(num);
+             $(".sum>span").html(sum.toFixed(2));
+         });
+         $(".sub").click(function(){
+             let num=parseInt($(".oNum").html());
+             num-=1;
+             if(num<=1){
+                 num=1;
+             }
+             let sum=num*149;
+             $(".oNum").html(num);
+             $(".num1").html(num);
+             $(".sum>span").html(sum.toFixed(2));
+         });
+     }
+//---------------------------------------localStorage的存储------------------------------------
+    $(".join").click(function(){
+        let ls=localStorage;
+        let $src=$("#main-bg").css("backgroundImage")+"";
+        let $title=$(".title>h1").html()+'';
+        let $size=$(".size-active").html()+'';
+        let $num=$(".num1").html()+"";
+        let $sub= $(".sum>span").html();
+        console.log($num);
+        console.log($(".size-active").html());
+        let data= [{"tittle":$title},{"src":$src},{"size":$size},{"num":$num},{"sub":$sub}];
+        ls.setItem("data",JSON.stringify(data));
+    });
+//-------------------------------------------------------------------------------------------
+</script>

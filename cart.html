@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <header></header>
+    <div id="listing-top">
+        <h3>购物清单</h3>
+    </div>
+    <div id="listing1">
+        <div id="shop-info">
+            <h5>商品信息</h5>
+            <h5>单价</h5>
+            <h5>数量</h5>
+            <h5>小计</h5>
+            <h5>操作</h5>
+        </div>
+        <div id="listing-main">
+            <div id="spec">
+                <span class="choose"></span>
+                <span class="shop-img"></span>
+                <span class="shop-name">
+                    <h3>这是一个不正经的商品名</h3>
+                    <p>黑色</p>
+                </span>
+                <p>￥&nbsp;<span class="price">149.00</span></p>
+                <p>
+                    <span class="reduce"></span>
+                    <span class="num">1</span>
+                    <span class="add"></span>
+                </p>
+                <p>￥&nbsp;<span class="sub">182.00</span></p>
+                <span class="del"></span>
+            </div>
+        </div>
+    </div>
+    <div id="listing2">
+        <p>您的购物车中还没有商品</p>
+        <a href="#">现在选购</a>
+    </div>
+    <div id="shop-bar">
+        <span class="bar-choose"></span>
+        <span>全选</span>
+        <span class="bar-del">删除选中的商品</span>
+        <h4>已选中<span class="bar-num">1</span>件商品</h4>
+        <h4>应付总额: <span>￥</span><span class="total">0.00</span></h4>
+        <a href="settlement.html" class="settlement">现在结算</a>
+    </div>
+    <footer></footer>
+</body>
+</html>
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script >
+    $(function(){
+       $("header").load("public1.html",function () {
+           
+       });
+
+       $("footer").load("public2.html",function () {
+
+       });
+//-----------------------------------------取localStorage-------------------------------------------
+        let ls=localStorage;
+        let myJson=JSON.parse(ls.getItem('data'));
+        let $tittle=myJson[0].tittle;
+        let $url=myJson[1].src;
+        let $size=myJson[2].size;
+        let $num=myJson[3].num;
+        let $sub=myJson[4].sub;
+        $(".num").html($num);
+        $(".shop-name>h3").html($tittle);
+        $(".shop-img").css("backgroundImage", $url);
+        $(".shop-name>p").html($size);
+        $(".sub").html($sub);
+        event();
+        sum();
+    });
+    function event(){
+        let num=Number($(".num").html());
+        let sub=Number($(".sub").html());
+        let price=Number($(".price").html());
+        let total=0;
+        let choose=document.getElementsByClassName("choose").length;
+        $(".add").click(function () {
+            num+=1;
+            sub=price*num;
+            $(".num").html(num);
+            $(".sub").html(sub.toFixed(2));
+            sum();
+        });
+        $(".reduce").click(function () {
+            num-=1;
+            if(num<=1){
+                num=1;
+            }
+            sub=price*num;
+            $(".num").html(num);
+            $(".sub").html(sub.toFixed(2));
+            sum();
+        });
+        $(".del").click(function(){
+            $(this).parent().remove();
+            $(".total").html(0);
+            sum();
+        });
+
+    }
+        $(".choose").click(function(){
+            if($(this).hasClass("highlight")){
+                $(this).removeClass("highlight");
+            }else{
+                $(".total").html(0);
+                $(this).addClass("highlight");
+            }
+            sum()
+        });
+        $(".bar-choose").click(function(){
+            if($(this).hasClass("highlight")){
+                $(this).removeClass("highlight");
+                $(".choose").removeClass("highlight");
+            }else{
+                $(this).addClass("highlight");
+                $(".choose").addClass("highlight");
+            }
+            sum();
+        });
+
+        function sum(){
+                total=Number($("#spec>.highlight").next().next().next().next().next().children().html());
+                $(".total").html(total.toFixed(2));
+                let bar_num=$("#spec>.highlight").length;
+                if($(".choose").hasClass("highlight")){
+                    $(".bar-num").html(bar_num);
+                }else{
+                    $(".bar-num").html(0);
+                    $(".total").html(0);
+                }
+        }
+
+
+</script>

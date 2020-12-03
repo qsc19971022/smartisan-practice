@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div id="login">
+        <div class="title">
+            <h4>使用 Smartisan ID 登录官网</h4>
+        </div>
+        <form action="#" method="post">
+            <div class="info">
+                <p><span></span><input type="text" name="username" id="username" placeholder="手机号/邮箱"></p>
+                <p><span></span><input type="password" name="pwd" id="pwd" placeholder="密码"></p>
+                <span class="user-1"></span>
+                <span class="pwd-1"></span>
+            </div>
+            <div class="binding">
+                <div class="auto">自动登录</div>
+                <a href="registered.html">注册 Smartisan ID</a>|
+                <a href="#">忘记密码？</a>
+            </div>
+            <input type="button" value="登录" id="commit">
+        </form>
+        <div class="other">
+            <p>其他账号登录:</p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <a href="#">国际手机号登录></a>
+        </div>
+    </div>
+    <footer>
+        <span>Copyright © 2019 smartisan.com 版权所有</span>|
+        <a href="#">法律声明</a>|
+        <a href="#">隐私条款</a>
+        <a href="#">京 ICP 备 18020659 号 - 2</a>
+    </footer>
+</body>
+</html>
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script >
+    $(function(){
+       $(".auto").click(function(){
+           let i=parseInt($(this).css("backgroundPositionY"));
+           i=i+19;
+           console.log(i);
+           $(this).css({
+               backgroundPositionY:i
+           })
+       });
+
+    });
+    let regMail = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
+    let regName=/^1\d{10}$/;
+    let flagUser=false;
+    let flagPwd=false;
+    let flagSever=false;
+    $("#username").blur(function(){
+        let us=$("#username").val();
+        if(regName.test(us)==true){
+            $(".user-1").html("合法");
+            $(".user-1").show();
+            flagUser=true;
+        }else{
+            $(".user-1").html("手机号/邮箱格式错误");
+            $(".user-1").show();
+        }
+    });
+    $("#pwd").blur(function(){
+        let pwd=$("#pwd").val();
+        if (pwd.length>=6){
+            $(".pwd-1").hide();
+            flagPwd=true
+        }else{
+            $(".pwd-1").html("密码必须大于6位");
+            $(".pwd-1").show();
+        }
+    });
+    $("#commit").click(function(){
+        console.log(flagPwd );
+        let us=$("#username").val();
+        let pwd=$("#pwd").val();
+        if(flagPwd && flagUser){
+            $.post("login.php",{username:us,pwd:pwd},function(res,stat){
+                login(res);
+            });
+            function login(str){
+                if(str==0){
+                    let ls=localStorage;
+                    ls.setItem("user",us);
+                    location.href = "index.html";
+                }else{
+                    $(".user-1").html("账号/密码错误");
+                    $(".user-1").show();
+                }
+            }
+        }
+    });
+
+</script>

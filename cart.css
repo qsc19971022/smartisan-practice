@@ -1,0 +1,292 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#listing-top{
+    height: 70px;
+    width: 1220px;
+    margin: 30px auto 0 auto;
+    line-height: 70px;
+    border: 1px solid rgba(210,210,210,1);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: rgb(250,250,250);
+}
+#listing-top>h3{
+    padding-left: 30px;
+    color: rgb(102,102,102);
+}
+#shop-info{
+    width: 1220px;
+    height: 50px;
+    line-height: 50px;
+    margin: 0 auto;
+    background-color: rgb(245,245,245);
+}
+#shop-info>h5{
+    display: inline-block;
+    color: #838383;
+}
+#shop-info>h5:nth-child(1){
+    padding-left: 30px;
+}
+#shop-info>h5:nth-child(2){
+    margin-left: 600px;
+}
+#shop-info>h5:nth-child(3){
+    margin-left: 120px;
+}
+#shop-info>h5:nth-child(4){
+    margin-left: 120px;
+}
+#shop-info>h5:nth-child(5){
+    margin-left: 120px;
+}
+#listing1{
+    /*display: none;*/
+}
+#listing2{
+    width: 1220px;
+    height: 600px;
+    margin: 0 auto 30px auto;
+    background-color: white;
+    border: 1px solid rgb(219,219,219);
+    border-top: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-image: url("img1/car.png");
+    background-repeat: no-repeat;
+    background-position: center 80px;
+    text-align: center;
+    display: none;
+}
+#listing2>p{
+    font-size: 14px;
+    line-height: 1.5;
+    color: #8d8d8d;
+    margin-bottom: 17px;
+    text-align: center;
+    padding-top: 400px;
+}
+#listing2>a{
+    display: inline-block;
+    width: 130px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border: 1px solid rgb(225,225,225);
+    border-radius: 5px;
+    background-color: rgb(251,251,251);
+}
+#listing2>a:hover{
+    background-color: rgb(242,242,242);
+}
+#listing-main{
+    width: 1220px;
+    height: auto;
+    margin: 0 auto;
+    border: 1px solid rgb(225,225,225);
+    background-color: white;
+    box-sizing: border-box;
+    border-bottom: none;
+}
+#spec{
+    width: 100%;
+    height: 120px;
+    box-sizing: border-box;
+}
+.choose{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 1px solid rgb(230,230,230);
+    border-radius: 50%;
+    margin-left: 30px;
+    position: relative;
+    top: -10px;
+    cursor: pointer;
+}
+.shop-img{
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    border: 1px solid rgb(240,240,240);
+    border-radius: 5px;
+    margin-left: 30px;
+    position: relative;
+    top: 20px;
+    background-repeat: no-repeat;
+    background-size: 80px 80px;
+}
+.shop-name{
+    display: inline-block;
+    margin-left: 20px;
+}
+.shop-name>h3{
+    color: #333;
+    font-size: 16px;
+    font-weight: 700;
+}
+.shop-name>p{
+    color: #999;
+    font-size: 12px;
+    padding-top: 6px;
+    line-height: 17px;
+}
+#spec>p:nth-child(4){
+    display: inline-block;
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    margin-left: 300px;
+    position: relative;
+    font-weight: 600;
+    top: -20px;
+}
+#spec>p:nth-child(5){
+    display: inline-block;
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    margin-left: 60px;
+    position: relative;
+    font-weight: 600;
+    top: -10px;
+}
+.reduce{
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    background-image: url("img1/btn.png");
+    background-repeat: no-repeat;
+    background-position: -5px -60px;
+    cursor: pointer;
+}
+.num{
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    position: relative;
+    top: -8px;
+}
+.add{
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    background-image: url("img1/btn.png");
+    background-repeat: no-repeat;
+    background-position: -5px 0;
+    cursor: pointer;
+}
+#spec>p:nth-child(6){
+    display: inline-block;
+    text-align: center;
+    color: #666;
+    margin-left: 60px;
+    font-size: 14px;
+    font-weight: 800;
+    position: relative;
+    top: -20px;
+}
+.sub{
+    display: inline-block;
+}
+.del{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-left: 96px;
+    background-image: url("img1/del.png");
+    position: relative;
+    top: -14px;
+    cursor: pointer;
+}
+.del:hover{
+    background-position: 0 24px;
+}
+#shop-bar{
+    width: 1220px;
+    height: 80px;
+    margin: 0 auto 30px auto;
+    background-image: url("img1/bar-bg.png");
+    border: 1px solid rgb(217,217,217);
+    box-shadow:0 0 5px 5px #EDEDED;
+    line-height: 80px;
+}
+.bar-choose{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 1px solid rgb(230,230,230);
+    border-radius: 50%;
+    margin-left: 30px;
+    cursor: pointer;
+}
+#shop-bar>span:nth-child(2){
+    display: inline-block;
+    height: 20px;
+    color: #666;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 0 10px;
+    line-height: 20px;
+    box-sizing: border-box;
+    position: relative;
+    top: -3px;
+    border-right: 1px solid rgb(225,225,225);
+}
+.bar-del{
+    display: inline-block;
+    color: #bbb;
+    height: 20px;
+    line-height: 20px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 12px;
+    margin-left: 10px;
+    position: relative;
+    top: -4px;
+}
+#shop-bar>h4:nth-child(4){
+    display: inline-block;
+    margin-left: 480px;
+    padding-right: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-right: 1px solid rgb(225,225,225);
+}
+.bar-num{
+    display: inline-block;
+    width: 30px;
+    height: 20px;
+    text-align: center;
+    color: #d44d44;
+}
+#shop-bar>h4:nth-child(5){
+    margin-left: 30px;
+    display: inline-block;
+}
+#shop-bar>h4:nth-child(5)>span{
+    color: #d44d44;
+}
+.settlement{
+    display: inline-block;
+    margin-left: 20px;
+    width: 140px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    background-color: rgb(102,139,231);
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+}
+.settlement:hover{
+    background-color: rgb(102,132,206);
+}
+.highlight{
+    background-image: url("img1/auto.png");
+    background-position: -1px 0;
+}

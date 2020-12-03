@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>公共底部</title>
+    <style>
+        li{
+            list-style-type: none;
+        }
+        footer{
+            width: 100%;
+            /*height: 340px;*/
+            background-color: rgb(250,250,250);
+        }
+        footer a{
+            text-decoration: none;
+            display: inline-block;
+            color: rgb(150,150,150);
+            font-size: 12px;
+        }
+        footer a:hover{
+            color: #5079d9;
+        }
+        .f-top{
+            width: 1220px;
+            height: 200px;
+            border-bottom: 1px solid rgb(230,230,230);
+            margin: 0 auto;
+            position: relative;
+            left: -30px;
+        }
+        .f-top>div{
+            text-align: center;
+            float: left;
+        }
+        #foot-nav .title{
+            font-size: 12px;
+            color: rgb(100,100,100);
+            padding: 20px 0;
+        }
+        #foot-nav a{
+            margin:0 40px;
+        }
+        .right{
+            width: 300px;
+            float: right;
+            margin-top: 30px;
+            position: relative;
+            height: 120px;
+        }
+        .right>li:nth-child(1){
+            font-size: 18px;
+            font-weight: 900;
+            line-height: 1;
+            cursor: default;
+            color: #5079d9;
+            text-align: right;
+            padding:0 0 20px 0;
+        }
+        .right>li:nth-child(2){
+            font-size: 12px;
+            line-height: 1;
+            color: #999;
+            text-align: right
+        }
+        .right>li:nth-child(3){
+            font-size: 12px;
+            line-height: 1;
+            color: #999;
+            text-align: right
+        }
+        .right>li:nth-child(4)>a{
+            width: 132px;
+            height: 30px;
+            line-height: 30px;
+            background: linear-gradient(#fcfcfc,#f5f5f5);
+            font-size: 12px;
+            font-weight: 700;
+            margin-top: 15px;
+            text-align: center;
+            color: #5079d9;
+            border: 1px solid #d0d0d0;
+            border-radius: 5px;
+            box-sizing: border-box;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+        .f-bottom{
+            width: 1220px;
+            margin: 0 auto;
+            font-size: 12px;
+            color: #999;
+        }
+        .f-bottom li{
+            display: inline-block;
+            margin: 30px 10px;
+        }
+        .f-bottom li:nth-child(1){
+            font-size: 12px;
+            color: #999;
+        }
+        .f-bottom>a{
+            margin: 0 10px;
+            position: relative;
+            top: -20px;
+        }
+
+    </style>
+</head>
+<body>
+    <footer>
+        <div class="f-top">
+            <div>
+                <table id="foot-nav">
+                    <tr>
+                        <th class="title">订单服务</th>
+                        <th class="title">服务支持</th>
+                        <th class="title">媒体中心</th>
+                        <th class="title">关注我们</th>
+                    </tr>
+                    <tr>
+                        <td><a href="#">购买指南</a></td>
+                        <td><a href="#">自助服务</a></td>
+                        <td><a href="#">新闻动态</a></td>
+                        <td><a href="#">新浪微博</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">送货政策</a></td>
+                        <td><a href="#">使用帮助</a></td>
+                        <td><a href="#">官方视频</a></td>
+                        <td><a href="#">官方微信</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#"></a></td>
+                        <td><a href="#">维修门店</a></td>
+                        <td><a href="#">图片资源</a></td>
+                        <td><a href="#">荣誉奖项</a></td>
+                    </tr>
+                </table>
+            </div>
+            <ul class="right">
+                <li>400 - 626 - 5666</li>
+                <li>周一到周日 9:00 - 18:00</li>
+                <li>(仅收市话费)</li>
+                <li><a href="#">在线帮助</a></li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+        <div class="f-bottom">
+            <ul>
+                <li>Copyright © 2019 smartisan.com 版权所有</li>|
+                <li><a href="#">法律声明</a></li>|
+                <li><a href="#">Smartisan 隐私条款</a></li>|
+                <li><a href="#">锤子商城隐私政策</a></li>|
+                <li><a href="#">锤子商城用户协议</a></li>|
+            </ul>
+            <a href="#">京 ICP 备 18020659 号 - 2</a>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册页面</title>
+    <link rel="stylesheet" href="registered.css">
+</head>
+<body>
+<div id="login">
+    <div class="title">
+        <h4>注册 Smartisan ID</h4>
+    </div>
+    <form action="#" method="post">
+        <div class="info">
+            <p><span></span><input type="text" name="username" id="username" placeholder="手机号/邮箱"></p>
+            <p><span></span><input type="password" name="pwd" id="pwd" placeholder="密码"></p>
+            <p><span></span><input type="password" name="repwd" id="repwd" placeholder="请确认密码"></p>
+            <span class="user-1"></span>
+            <span class="pwd-1"></span>
+            <span class="repwd-1"></span>
+        </div>
+        <input type="button" value="注册" id="commit">
+    </form>
+    <div class="other">
+        <p>其他账号登录:</p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <a href="#">国际手机号登录></a>
+    </div>
+</div>
+<footer>
+    <span>Copyright © 2019 smartisan.com 版权所有</span>|
+    <a href="#">法律声明</a>|
+    <a href="#">隐私条款</a>
+    <a href="#">京 ICP 备 18020659 号 - 2</a>
+</footer>
+</body>
+</html>
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script >
+    $(function(){
+
+    });
+    let regMail = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
+    let regName=/^1\d{10}$/;
+    let flagUser=false;
+    let flagPwd=false;
+    let flagrepwd=false;
+    $("#username").blur(function(){
+        let us=$("#username").val();
+        if(regName.test(us)==true){
+            $(".user-1").html("合法");
+            $(".user-1").show();
+            flagUser=true;
+        }else{
+            $(".user-1").html("手机号/邮箱格式错误");
+            $(".user-1").show();
+        }
+    });
+    $("#pwd").blur(function(){
+        let pwd=$("#pwd").val();
+        if (pwd.length>=6){
+            $(".pwd-1").hide();
+            flagPwd=true
+        }else{
+            $(".pwd-1").html("密码必须大于6位");
+            $(".pwd-1").show();
+        }
+    });
+    $("#repwd").blur(function () {
+        let pwd=$("#pwd").val();
+        let repwd=$("#repwd").val();
+        if(repwd==pwd){
+            $(".repwd-1").html("合法");
+            $(".repwd-1").show();
+            flagrepwd=true;
+        }else{
+            $(".repwd-1").html("请与密码保持一致");
+            $(".repwd-1").show();
+        }
+    });
+    $("#commit").click(function(){
+        console.log(flagPwd );
+        let us=$("#username").val();
+        let pwd=$("#pwd").val();
+        if(flagPwd && flagUser&&flagrepwd){
+            $.post("registered.php",{username:us,pwd:pwd},function(res,stat){
+                login(res);
+            });
+            function login(str){
+                if(str==0){
+                    $(".user-1").html("该用户名已存在");
+                    $(".user-1").show();
+                }else{
+                    alert("注册成功");
+                    location.href = "login.html";
+                }
+            }
+        }
+    });
+
+</script>
